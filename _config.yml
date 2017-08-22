@@ -35,7 +35,7 @@ author:
     - name: facebook
       url:
     - name: github
-      url: http://blog.crazyhc.com/
+      url: https://github.com/maxiaoxian
     - name: instagram
       url:
     - name: linkedin
@@ -49,7 +49,7 @@ author:
 home:
   section1: <h1>小马科技博客</h1>
   section2: <h2>不知道小马是谁，只知道世界快要被AI占领了</h2>
-  section3: <div class="social-links"><a class="ico-github btn" href="https://github.com/maxiaoxian/crazyhc-blog" title="View on GitHub"></a></div>
+  section3: <div class="social-links"><a class="ico-github btn" href="https://github.com/maxiaoxian" title="View on GitHub"></a></div>
 blog:
   cc_license: # A link to CC License of your choice, e.g. http://creativecommons.org/licenses/by-sa/4.0/.
   cc_license_image: # An image of your CC License, e.g. /assets/images/theme/cc-by-sa.png
