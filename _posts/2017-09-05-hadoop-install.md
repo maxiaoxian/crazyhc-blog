@@ -125,3 +125,4 @@ redirect_from:
 5、 Hadoop完全分布式
 
 ## HADOOP常用命令
+
