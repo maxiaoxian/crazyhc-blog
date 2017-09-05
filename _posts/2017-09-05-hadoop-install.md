@@ -8,14 +8,18 @@ redirect_from:
   - /2017/09/05/
 ---
 
-##　Hadoop安装 
+> Hadoop是一个由Apache基金会所开发的分布式系统基础架构。Hadoop的框架最核心的设计就是：HDFS和MapReduce。HDFS为海量的数据提供了存储，则MapReduce为海量的数据提供了计算。
 
+{:toc .toc}
 
-> 先安装JDK及JRE
+## Hadoop安装 
+
+1、  先安装JDK及JRE
 
     yum install -y java java-1.8.0-openjdk-devel
 
-> 下载hadoop并安装
+
+2、 下载hadoop并安装
 
 下载地址： http://hadoop.apache.org/releases.html  
 配置环境变量： 
@@ -26,11 +30,12 @@ redirect_from:
     HADOOP_HOME=/opt/hadoop-2.8.1
     export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
 
-> Hadoop独立模式
+
+3、 Hadoop独立模式
 
 没有守护程序，无须额外配置，只适合在开发环境中使用。
 
-> Hadoop伪分布模式
+4、 Hadoop伪分布模式
 
 模拟分布式环境。同样用于开发测试。配置如下：
 
@@ -117,4 +122,4 @@ redirect_from:
 
 最后可以查看一下web界面。  名称节点：http://10.123.253.87:50070 资源管理器：http://10.123.253.87:8088
 
-> Hadoop完全分布式
+5、 Hadoop完全分布式
