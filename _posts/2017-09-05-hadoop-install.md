@@ -10,7 +10,7 @@ redirect_from:
 
 > Hadoop是一个由Apache基金会所开发的分布式系统基础架构。Hadoop的框架最核心的设计就是：HDFS和MapReduce。HDFS为海量的数据提供了存储，则MapReduce为海量的数据提供了计算。
 
-{:toc .toc}
+{:toc .toc}  
 
 ## Hadoop安装 
 
