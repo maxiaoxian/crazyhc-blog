@@ -151,11 +151,11 @@ windows下需要添加文件，如下面的设置。
 这里推荐使用/hadoop2x-eclipse-plugin，按版本需要自己进行编译。eclipse版本为kepler。插件下载地址： https://github.com/winghc/hadoop2x-eclipse-plugin  
 然后，  
 
-在Windoow/Preferences/Hadoop Map/Reduce下配置本地hadoop的家目录。如下图：
-![](../assets/images/blog/hadoop2x-eclipse-plugin.png)
+在Windoow/Preferences/Hadoop Map/Reduce下配置本地hadoop的家目录。如下图：  
+![](https://github.com/maxiaoxian/crazyhc-blog/blob/master/assets/images/blog/hadoop2x-eclipse-plugin.png)
 
 添加一个hadoop资源，如下图：  
-![](../assets/images/blog/hadoop2x-eclipse-plugin2.png)
+![](https://github.com/maxiaoxian/crazyhc-blog/blob/master/assets/images/blog/hadoop2x-eclipse-plugin2.png)
 
 定义一个hadoop资源，不要用原来的端口。如下图：  
-![](../assets/images/blog/hadoop2x-eclipse-plugin3.png)
+![](https://github.com/maxiaoxian/crazyhc-blog/blob/master/assets/images/blog/hadoop2x-eclipse-plugin3.png)
