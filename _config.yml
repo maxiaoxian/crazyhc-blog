@@ -25,7 +25,7 @@ url: # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: # the subpath of your site, e.g. /blog
 title: 小马科技博客
 description: "不知道小马是谁，只知道AI要占领世界。"
-keywords: 'jekyll,theme,gem-based,blog'
+keywords: 'Java,DevOps,Database,Bigdata'
 author:
   name:
   job_title:
@@ -48,7 +48,7 @@ author:
       url:
 home:
   section1: <h1>小马科技博客</h1>
-  section2: <h2>不知道小马是谁，只知道AI要占领世界。</h2>
+  section2: <h2>不知道小马是谁，只知道AI要占领全世界。</h2>
   section3: <div class="social-links"><a class="ico-github btn" href="https://github.com/maxiaoxian" title="View on GitHub"></a></div>
 blog:
   cc_license: # A link to CC License of your choice, e.g. http://creativecommons.org/licenses/by-sa/4.0/.

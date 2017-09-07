@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Hadoop安装方式与常用命令"
-description: "Hadoop安装方式与常用命令"
+title: "Hadoop安装方式与开发环境"
+description: "Hadoop安装方式与开发环境"
 categories: [hadoop]
 tags: [hadoop, bigdata]
 redirect_from:
@@ -124,5 +124,38 @@ redirect_from:
 
 5、 Hadoop完全分布式
 
+主要用于生产环境。配置雷同伪分布式。不做过多讲解。
+
 ## HADOOP常用命令
 
+Hadoop的命令基本跟shell命令一直。具体参考下官网：http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/FileSystemShell.html
+
+## Windows开发环境配置
+
+1、 安装Hadoop
+
+解压安装包，配置环境变量。同Linux安装。这里建议使用hadoop2.6.5，服务器环境也要使用相同版本。  
+windows下环境变量，如何避免空格问题。如：D:\Program Files = D:\Progra~2  
+
+**重点：**  
+
+windows下需要添加文件，如下面的设置。  
+下载 https://github.com/amihalik/hadoop-common-2.6.0-bin  
+拷贝bin目录下的文件到%HADOOP_HOME%/bin下。  
+拷贝hadoop.dll文件到System32目录下。
+
+
+
+2、 安装Eclipse开发插件  
+
+这里推荐使用/hadoop2x-eclipse-plugin，按版本需要自己进行编译。eclipse版本为kepler。插件下载地址： https://github.com/winghc/hadoop2x-eclipse-plugin  
+然后，  
+
+在Windoow/Preferences/Hadoop Map/Reduce下配置本地hadoop的家目录。如下图：
+![](assets/hadoop2x-eclipse-plugin.png)
+
+添加一个hadoop资源，如下图：  
+![](assets/hadoop2x-eclipse-plugin2.png)
+
+定义一个hadoop资源，不要用原来的端口。如下图：  
+![](assets/hadoop2x-eclipse-plugin3.png)
