@@ -152,10 +152,10 @@ windows下需要添加文件，如下面的设置。
 然后，  
 
 在Windoow/Preferences/Hadoop Map/Reduce下配置本地hadoop的家目录。如下图：
-![](assets/hadoop2x-eclipse-plugin.png)
+![](../assets/images/blog/hadoop2x-eclipse-plugin.png)
 
 添加一个hadoop资源，如下图：  
-![](assets/hadoop2x-eclipse-plugin2.png)
+![](../assets/images/blog/hadoop2x-eclipse-plugin2.png)
 
 定义一个hadoop资源，不要用原来的端口。如下图：  
-![](assets/hadoop2x-eclipse-plugin3.png)
+![](../assets/images/blog/hadoop2x-eclipse-plugin3.png)
