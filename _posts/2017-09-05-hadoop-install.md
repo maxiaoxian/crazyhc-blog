@@ -160,3 +160,8 @@ windows下需要添加文件，如下面的设置。
 
 定义一个hadoop资源，不要用原来的端口。如下图：  
 ![](../assets/images/blog/hadoop2x-eclipse-plugin3.png)
+
+
+**注意：**
+
+运行程序时，需要将%HADOOP_HOME%/etc/hadoop下面的log4j.properties文件copy到工程下。这样控制台才会打印出日志。
