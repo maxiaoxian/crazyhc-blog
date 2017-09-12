@@ -22,6 +22,7 @@ redirect_from:
 
 ## Hbase完全分布式
 
+
 ## Hbase的Shell  
 使用比较简单，参考一下：[HBase官方文档](http://abloz.com/hbase/book.html#shell_exercises)
 
