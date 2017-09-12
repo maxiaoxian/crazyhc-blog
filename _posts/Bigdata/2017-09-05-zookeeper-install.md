@@ -74,7 +74,14 @@ redirect_from:
 ## zookeeper的基本用法
 
 1、	远程获得server的信息
+	
+	# 安装nc
+	[root@hadoop_1 ~]# yum install -y nmap-ncat-6.40-7
+	# 获取连接信息
+	[root@hadoop_1 ~]# echo cons | nc hadoop_2 2181    
+ 	/10.123.253.87:37272[0](queued=0,recved=1,sent=0)
 
+其他命令：  
 |-----------------+------------+-----------------| 
 | 编码 | 命令 | 说明 | 
 |-----------------|:-----------|:---------------:|
@@ -88,9 +95,31 @@ redirect_from:
 | 8 | wchs | 服务器watch的详细信息 |
 | 9 | wchp | 列出指定路径下的服务器信息 |
 |-----------------+------------+-----------------|
-	
-	# 安装nc
-	[root@hadoop_1 ~]# yum install -y nmap-ncat-6.40-7
-	# 获取连接信息
-	[root@hadoop_1 ~]# echo cons | nc hadoop_2 2181    
- 	/10.123.253.87:37272[0](queued=0,recved=1,sent=0)
+
+2、	zkCli.sh 客户端操作  
+
+	[root@hadoop_1 ~]# zkCli.sh -server hadoop_2:2181 help
+	Connecting to hadoop_2:2181
+		#... 略过一些日志
+	ZooKeeper -server host:port cmd args
+        stat path [watch]
+        set path data [version]
+        ls path [watch]
+        delquota [-n|-b] path
+        ls2 path [watch]
+        setAcl path acl
+        setquota -n|-b val path
+        history 
+        redo cmdno
+        printwatches on|off
+        delete path [version]
+        sync path
+        listquota path
+        rmr path
+        get path [watch]
+        create [-s] [-e] path data acl
+        addauth scheme auth
+        quit 
+        getAcl path
+        close 
+        connect host:port
