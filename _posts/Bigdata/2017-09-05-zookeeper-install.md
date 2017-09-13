@@ -13,7 +13,6 @@ redirect_from:
 * Kramdown table of contents
 {:toc .toc}
 
-
 ## Zookeeper的安装
 
 1、	准备3个节点（建议节点数为：2n+1）  
@@ -81,7 +80,7 @@ redirect_from:
 	[root@hadoop_1 ~]# echo cons | nc hadoop_2 2181    
  	/10.123.253.87:37272[0](queued=0,recved=1,sent=0)
 
-其他命令：
+附：其他命令说明
   
 |-----------------+------------+-----------------| 
 | 编码 | 命令 | 说明 | 

@@ -46,13 +46,15 @@ redirect_from:
 	# 配置core-site.xml,hdfs-site.xml,mapred-site.xml,yarn-site.xml四个文件。
 
 	[root@hadoop_0 hadoop_pseudo]# cat core-site.xml 
-    <configuration>
+	<!-- 配置名称节点 -->    
+	<configuration>
     	<property>
     		<name>fs.defaultFS</name>
     		<value>hdfs://localhost/</value>
     	</property>
     </configuration>
 	[root@hadoop_0 hadoop_pseudo]# cat hdfs-site.xml 
+	<!-- 副本数 -->
 	<configuration>
 		<property>
 			<name>dfs.replication</name>
@@ -125,7 +127,85 @@ redirect_from:
 
 5、 Hadoop完全分布式
 
-主要用于生产环境。配置雷同伪分布式。不做过多讲解。
+主要用于生产环境。配置雷同伪分布式。  
+首先配置三个节点，nameNode-->dataNode建立ssh免登陆。  
+	
+	[root@hadoop-01 hadoop]# cat /etc/hosts
+	10.123.253.87 hadoop-01
+	10.123.253.88 hadoop-02
+	10.123.253.89 hadoop-03
+	[root@hadoop-01 hadoop]# ssh-keygen;ssh-copy-id hadoop-0[2,3]
+
+配置core-site.xml,hdfs-site.xml,mapred-site.xml,yarn-site.xml四个文件。
+
+	[root@hadoop-01 hadoop]# cat core-site.xml 
+	<configuration>
+	        <property>
+	                <name>fs.defaultFS</name>
+	                <value>hdfs://hadoop-01</value>
+	        </property>
+			<!-- 表示多长时间记录一次hdfs的镜像。默认是1小时。 -->
+	        <property>
+	                <name>fs.checkpoint.period</name>
+	                <value>3600</value>
+	        </property>
+			<!-- 表示一次记录多大的size，默认64M -->
+	        <property>
+	                <name>fs.checkpoint.size</name>
+	                <value>67108864</value>
+	        </property>
+	</configuration>
+	[root@hadoop-01 hadoop]# cat hdfs-site.xml 
+	<configuration>
+	        <property>
+	                <name>dfs.replication</name>
+	                <value>2</value>
+	        </property>
+	        <property>
+	                <name>dfs.http.address</name>
+	                <value>hadoop-01:50070</value>
+	        </property>
+	        <property>
+	                <name>dfs.namenode.secondary.http-address</name>
+	                <value>hadoop-02:50070</value>
+	        </property>
+	</configuration>
+	[root@hadoop-01 hadoop]# cat mapred-site.xml
+	<configuration>
+	        <property>
+	                <name>mapreduce.framework.name</name>
+	                <value>yarn</value>
+	        </property>
+	</configuration>
+	[root@hadoop-01 hadoop]# cat yarn-site.xml
+	<configuration>
+	
+	        <property>
+	                <name>yarn.resourcemanager.hostname</name>
+	                <value>hadoop-01</value>
+	        </property>
+	        <property>
+	                <name>yarn.nodemanager.aux-services</name>
+	                <value>mapreduce_shuffle</value>
+	        </property>
+	</configuration>
+		
+配置masters和slaves
+	
+	[root@hadoop-01 hadoop]# cat masters 
+	hadoop-02 # SecondaryNameNode
+	[root@hadoop-01 hadoop]# cat slaves 
+	hadoop-02	# dataNoade
+	hadoop-03
+
+之后，同步到所有节点。格式化nameNode数据。并启动
+	
+	# 格式化文件系统
+	[root@hadoop_0 hadoop_pseudo]# hadoop namenode -format
+	[root@hadoop-01 hadoop]# start-all.sh
+
+这样就ok啦。最后，用jps命令查看一下结果吧。
+
 
 ## HADOOP常用命令
 
