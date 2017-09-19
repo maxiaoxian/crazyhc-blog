@@ -225,7 +225,7 @@ windows下需要添加文件，如下面的设置。
 拷贝bin目录下的文件到%HADOOP_HOME%/bin下。  
 拷贝hadoop.dll文件到System32目录下。
 
-
+ 
 
 2、 安装Eclipse开发插件  
 
