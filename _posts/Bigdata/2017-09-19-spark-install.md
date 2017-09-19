@@ -21,7 +21,9 @@ spark与hadoop的关系，类似于操作系统（Hadoop）与应用（Spark）�
 
 2、 放到hadoop集群的节点上解压。spark的节点数量可以少于hadoop的节点。根据需要而定。  
 
-3、 配置spark集群
+3、 [zookeeper安装参考](/blog/2017/09/05/zookeeper-install/)、[hadoop安装参考](/blog/2017/09/05/hadoop-install/)
+
+4、 配置spark集群
 
 	[root@hadoop-01 ~]# cat /etc/profile	
 	export JAVA_HOME=/usr/lib/jvm/java
