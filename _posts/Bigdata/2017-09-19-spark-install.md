@@ -67,14 +67,14 @@ spark与hadoop的关系，类似于操作系统（Hadoop）与应用（Spark）�
 先运行个示例，看看怎么用。后面有时间再详细讲解用法。
 
 	# 本地模式两线程运行
-	[root@hadoop-01 ~]# run-example SparkPi 10 --master local[2]
+	[root@hadoop-01 ~]# run-example SparkPi 10 --master local[2] # 本地双核
 
 	# Spark Standalone 集群模式运行
 	[root@hadoop-01 ~]# spark-submit \
   	--class org.apache.spark.examples.SparkPi \
   	--master spark://hadoop-01:7077 \
   	/opt/spark/examples/jars/spark-examples_2.11-2.2.0.jar \
-  	100
+  	100 # SparPi的入参
 
 	# Spark on YARN 集群上 yarn-cluster 模式运行
 	[root@hadoop-01 ~]# spark-submit \
@@ -83,4 +83,40 @@ spark与hadoop的关系，类似于操作系统（Hadoop）与应用（Spark）�
     /opt/spark/examples/jars/spark-examples_2.11-2.2.0.jar\
     10
 
+	# spark-shell连接集群
+	[root@hadoop-01 ~]# spark-shell --master spark://hadoop-01:7077 --executor-memory 512m --driver-memory 512m
+
 最后，推荐一个一键部署 Hadoop + Spark 集群工具：https://github.com/marc-chen/hadoop-spark-installer
+
+## WIN系统下SPARK开发环境搭建
+
+1、 Spark使用scala编写，建议先安装个Scala-ide。当然，也可以用java，或者python。  
+下载地址：http://scala-ide.org/download/current.html  
+
+2、 下载个Spark，参考上面的内容。
+
+3、 配置Spark的环境变量。Path添加%SPARK_HOME%/bin  
+检验：cmd上访问spark-shell看看是否成功。
+
+4、 eclipse新建一个工程。添加%SPARK_HOME%/jars下的依赖包。然后编写个示例测试一下吧。
+
+	package spark
+
+	import org.apache.spark.SparkConf
+	import org.apache.spark.SparkContext
+
+	object WordCount {
+  
+  	def main(args: Array[String]): Unit = {
+    
+	    val master= "local" //"spark://10.123.253.87:7077" 使用远程集群需要上传jar包。 
+	    val conf = new SparkConf().setAppName("WordCount").setMaster(master)
+	    val sc = new SparkContext(conf)
+	    val textFile = sc.textFile("hdfs://10.123.253.87:8020/sogou/", 2)  // 使用本地的文件。修改路径，如： D:/bigdata/SogouQ.sample
+	    val words = textFile.flatMap(line => line.split(" "))
+	    val wordPairs = words.map(word => (word,1))
+	    val wordCounts = wordPairs.reduceByKey((a,b) => a + b)
+	    println("wordCounts: ")
+	    wordCounts.collect().foreach(println)
+	  }
+	}
